@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "types": ["debug", "raf-schd", "unist", "jest"],
     "allowJs": true,
     "allowSyntheticDefaultImports": true,
     "baseUrl": ".",
@@ -21,5 +22,7 @@
     "skipLibCheck": true,
     "target": "es2018"
   },
-  "include": ["src/*.ts", "src/*.tsx"]
+  "include": [
+    "src", // or your source directory
+  ]
 }

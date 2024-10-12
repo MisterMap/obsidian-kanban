@@ -5,6 +5,7 @@
 # npm
 node_modules
 package-lock.json
+yarn.lock
 
 # build
 .DS_Store
@@ -15,3 +16,6 @@ dist
 test-vault/
 main.js
 styles.css
+
+# vscode
+.vscode
