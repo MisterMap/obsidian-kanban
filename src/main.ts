@@ -61,7 +61,7 @@ export default class KanbanPlugin extends Plugin {
 
   isShiftPressed: boolean = false;
 
-  taskUpdater: TaskUpdater = new TaskUpdater();
+  taskUpdater: TaskUpdater = new TaskUpdater("test kanban.md", this.app.vault, '## Inbox');
 
   async loadSettings() {
     this.settings = Object.assign({}, await this.loadData());

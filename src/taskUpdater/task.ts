@@ -4,7 +4,7 @@ export function generateInstanceId(len: number = 9): string {
 
 export class Task {
   private static readonly OBSIDIAN_TASK_REGEX = /^- \[([ xX])\] (.+?)( \^(\w+))?$/;
-    private static readonly KANBAN_TASK_REGEX = /^- \[([ xX])\] (.+?) \[\[([^\]]+)\^(\w+)\]\]$/;
+    private static readonly KANBAN_TASK_REGEX = /^- \[([ xX])\] (.+?) \[\[([^\]]+)#\^(\w+)\]\]$/;
 
     private summary: string;
     private project: string;
@@ -82,6 +82,6 @@ export class Task {
 
     toKanbanLine(): string {
         const checkboxStatus = this.getIsCompleted() ? 'x' : ' ';
-        return `- [${checkboxStatus}] ${this.getSummary()} [[${this.getProject()}^${this.getBlockId()}]]`;
+        return `- [${checkboxStatus}] ${this.getSummary()} [[${this.getProject()}#^${this.getBlockId()}]]`;
     }
 }

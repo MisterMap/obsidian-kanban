@@ -1,7 +1,14 @@
-import { MarkdownView } from 'obsidian';
+import { MarkdownView, Vault } from 'obsidian';
 import { Task } from './task';
+import KanbanBoardUpdater from './kanbanFileUpdater';
 
 export class TaskUpdater {
+    kanbanFileUpdater: KanbanBoardUpdater;
+
+    constructor(kanbanProject: string, vault: Vault, inboxColumnHeader: string) {
+        this.kanbanFileUpdater = new KanbanBoardUpdater(kanbanProject, vault, inboxColumnHeader);
+    }
+
     updateFromView(view: MarkdownView): void {
         console.log(`Updating tasks for view: ${view.file.name}`);
         const project = view.file.name.replace(/\.md$/, "")
@@ -38,6 +45,6 @@ export class TaskUpdater {
 
     updateKanbanTask(task: Task) {
         console.log(`Updating Kanban task: ${JSON.stringify(task)}`);
-        // Implementation to be added
+        this.kanbanFileUpdater.update(task);
     }
 }
